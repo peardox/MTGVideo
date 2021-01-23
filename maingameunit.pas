@@ -35,7 +35,6 @@ type
     LabelFPS: TCastleLabel;
     LabelImgSize: TCastleLabel;
     LabelViewSize: TCastleLabel;
-    LabelRectSize: TCastleLabel;
     LabelWinSize: TCastleLabel;
     LabelEffectiveSize: TCastleLabel;
     LabelRender: TCastleLabel;
@@ -59,9 +58,9 @@ var
   RenderReady: Boolean;
 
 const
-  RotateScene: Boolean = False;
-  SecsPerRot: Single = 12;
-  SceneFile: String = 'castle-data:/frame.jpg';
+  SceneFile: String = 'castle-data:/frame-540p.jpg';
+//  SceneFile: String = 'castle-data:/frame-720p.jpg';
+//  SceneFile: String = 'castle-data:/frame-1080p.jpg';
 
 implementation
 {$ifdef cgeapp}
@@ -109,24 +108,17 @@ end;
 
 procedure TCastleApp.LoadView;
 begin
-  CRect := TCastleRectangleControl.Create(Application);
-  CRect.Width := CastleForm.Window.Width;
-  CRect.Height := CastleForm.Window.Height;
-  CRect.Color := Vector4(0.25, 0, 0, 1);
-  InsertFront(CRect);
-
   CurrentFrame := TCastleImageControl.Create(Application);
-  CurrentFrame.Width := CastleForm.Window.Width;
-  CurrentFrame.Height := CastleForm.Window.Height;
+  CurrentFrame.Width := StateContainer.Width;
+  CurrentFrame.Height := StateContainer.Height;
   CurrentFrame.Stretch := True;
   CurrentFrame.ProportionalScaling := psFit;
   InsertFront(CurrentFrame);
 
   CreateLabel(LabelViewSize, 0, False);
-  CreateLabel(LabelRectSize, 1, False);
-  CreateLabel(LabelWinSize, 2, False);
-  CreateLabel(LabelImgSize, 3, False);
-  CreateLabel(LabelEffectiveSize, 4, False);
+  CreateLabel(LabelWinSize, 1, False);
+  CreateLabel(LabelImgSize, 2, False);
+  CreateLabel(LabelEffectiveSize, 3, False);
 
   CreateLabel(LabelSceneLoad, 2);
   CreateLabel(LabelFPS, 1);
@@ -138,9 +130,16 @@ end;
 procedure TCastleApp.LoadFrame(filename: String);
 var
   ProfileStart: TCastleProfilerTime;
+//  SourceImage: TDrawableImage;
 begin
   try
     ProfileStart := Profiler.Start('Scene loading Frame - ' + filename);
+{
+    SourceImage := TDrawableImage.Create(filename);
+    CurrentFrame.DrawableImage.DrawFrom(SourceImage,
+      FloatRectangle(SourceImage.Rect),
+      FloatRectangle(SourceImage.Rect));
+}
     CurrentFrame.URL := filename;
     Profiler.Stop(ProfileStart, True);
   except
@@ -179,8 +178,7 @@ begin
   if not(CurrentFrame = nil) then
     begin
       LabelViewSize.Caption := 'Frame Size  : ' + FloatToStr(CurrentFrame.Width) + ' x ' + FloatToStr(CurrentFrame.Height);
-      LabelRectSize.Caption := 'Rect Size  : ' + FloatToStr(CRect.Width) + ' x ' + FloatToStr(CRect.Height);
-      LabelWinSize.Caption := 'Window Size : ' + FloatToStr(CastleForm.Window.Width) + ' x ' + FloatToStr(CastleForm.Window.Height);
+      LabelWinSize.Caption := 'Window Size : ' + FloatToStr(StateContainer.Width) + ' x ' + FloatToStr(StateContainer.Height);
       LabelImgSize.Caption := 'Image Size  : ' + FloatToStr(CurrentFrame.DrawableImage.Width) + ' x ' + FloatToStr(CurrentFrame.DrawableImage.Height);
       LabelEffectiveSize.Caption := 'Effective Size  : ' + FloatToStr(CurrentFrame.EffectiveWidth) + ' x ' + FloatToStr(CurrentFrame.EffectiveHeight);
       CurrentFrame.Left := (CurrentFrame.Width - CurrentFrame.EffectiveWidth) / 2;
@@ -204,10 +202,8 @@ end;
 procedure TCastleApp.Resize;
 begin
   inherited;
-  CRect.Width := CastleForm.Window.Width;
-  CRect.Height := CastleForm.Window.Height;
-  CurrentFrame.Width := CastleForm.Window.Width;
-  CurrentFrame.Height := CastleForm.Window.Height;
+  CurrentFrame.Width := StateContainer.Width;
+  CurrentFrame.Height := StateContainer.Height;
 end;
 
 procedure TCastleApp.Update(const SecondsPassed: Single; var HandleInput: boolean);

@@ -1,24 +1,114 @@
 object CastleForm: TCastleForm
   Left = 390
-  Height = 240
+  Height = 353
   Top = 508
-  Width = 320
+  Width = 647
   Caption = 'CastleApp'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 353
+  ClientWidth = 647
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnResize = FormResize
   Position = poDefault
   LCLVersion = '2.0.10.0'
-  object Window: TCastleControlBase
+  object ContainerPanel: TPanel
     Left = 0
-    Height = 240
+    Height = 353
     Top = 0
-    Width = 320
+    Width = 647
     Align = alClient
-    Options = []
+    BevelOuter = bvNone
+    ClientHeight = 353
+    ClientWidth = 647
     TabOrder = 0
-    OnOpen = WindowOpen
-    OnClose = WindowClose
+    OnClick = ContainerPanelClick
+    object UpperPanel: TPanel
+      Left = 0
+      Height = 298
+      Top = 0
+      Width = 647
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 298
+      ClientWidth = 647
+      TabOrder = 0
+      object InfoPanel: TPanel
+        Left = 0
+        Height = 298
+        Top = 0
+        Width = 170
+        Align = alLeft
+        BevelOuter = bvNone
+        Caption = 'InfoPanel'
+        TabOrder = 0
+      end
+      object Splitter1: TSplitter
+        Left = 170
+        Height = 298
+        Top = 0
+        Width = 5
+      end
+      object VideoPanel: TPanel
+        Left = 175
+        Height = 298
+        Top = 0
+        Width = 472
+        Align = alClient
+        ClientHeight = 298
+        ClientWidth = 472
+        TabOrder = 2
+        object Window: TCastleControlBase
+          Left = 1
+          Height = 246
+          Top = 1
+          Width = 470
+          Align = alClient
+          Options = []
+          TabOrder = 0
+          OnOpen = WindowOpen
+          OnClose = WindowClose
+          OnBeforeRender = WindowBeforeRender
+        end
+        object PositionPanel: TPanel
+          Left = 1
+          Height = 50
+          Top = 247
+          Width = 470
+          Align = alBottom
+          BevelOuter = bvNone
+          ClientHeight = 50
+          ClientWidth = 470
+          TabOrder = 1
+          object PositionTrackBar: TTrackBar
+            Left = 0
+            Height = 25
+            Top = 25
+            Width = 470
+            Position = 0
+            Align = alBottom
+            TabOrder = 0
+          end
+        end
+      end
+    end
+    object LowerPanel: TPanel
+      Left = 0
+      Height = 50
+      Top = 303
+      Width = 647
+      Align = alBottom
+      Caption = 'LowerPanel'
+      TabOrder = 1
+    end
+    object Splitter2: TSplitter
+      Cursor = crVSplit
+      Left = 0
+      Height = 5
+      Top = 298
+      Width = 647
+      Align = alBottom
+      Anchors = [akLeft, akBottom]
+      ResizeAnchor = akBottom
+    end
   end
 end
