@@ -72,11 +72,7 @@ var
   MinimumFPS: Single;
   RecordedMinimumFPS: Boolean;
 
-const
-  WorkingDirectory: String = 'C:\backup\vids\tcc\tcc_znr_set_open\720p';
-  SceneFile: String = 'castle-data:/frame-540p.jpg';
-//  SceneFile: String = 'castle-data:/frame-720p.jpg';
-//  SceneFile: String = 'castle-data:/frame-1080p.jpg';
+  WorkingDirectory: String;
 
 implementation
 {$ifdef cgeapp}

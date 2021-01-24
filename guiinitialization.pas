@@ -6,6 +6,9 @@ interface
 
 uses
   Classes, SysUtils, LCLType, Math, CastleUIState, Forms, Controls, Graphics, Dialogs,
+  {$ifndef windows}
+  CastleFilesUtils,
+  {$endif}
   ExtCtrls, ComCtrls, StdCtrls, CastleControl, MainGameUnit, CastleControls,
   CastleColors, CastleUIControls, CastleTriangles, CastleShapes, CastleVectors,
   CastleViewport, CastleCameras, X3DNodes, X3DFields, X3DTIme, CastleImages,
@@ -53,24 +56,28 @@ procedure TCastleForm.FormCreate(Sender: TObject);
 begin
   MinimumFPS := 999999;
   RecordedMinimumFPS := False;
-
+  {$ifdef windows}
+  WorkingDirectory := 'C:\backup\vids\tcc\tcc_znr_set_open\720p'; // Temp
+  {$else}
+  WorkingDirectory := HomePath + 'tcc_znr_set_open/720p'; // Temp
+  {$endif}
   WriteLnLog('FormCreate : ' + FormatFloat('####0.000', (CastleGetTickCount64 - AppTime) / 1000) + ' : ');
   {$ifdef darwin}
   WindowState := wsFullScreen;
   {$endif}
   AppTime := CastleGetTickCount64;
-  MinFrame := 1;
-  MaxFrame := 45062;
-  FrameDiff := 0;
-  FrameCounter := 19369;
-  FramesPerTC := 24000;
-  CountsPerTC := 1001;
+  MinFrame := 1; // Temp
+  MaxFrame := 45062; // Temp
+  FrameDiff := 0; // Temp
+  FrameCounter := 19369; // Temp
+  FramesPerTC := 24000; // Temp
+  CountsPerTC := 1001; // Temp
   UpdatePosition;
   PrepDone := False;
   Profiler.Enabled := true;
   InitializeLog;
   KeyPreview := True;
-  Caption := 'MTGVideo CGE Lazarus Application';
+  Caption := 'MTGVideo';
 end;
 
 procedure TCastleForm.FormKeyDown(Sender: TObject; var Key: Word;
