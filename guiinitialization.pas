@@ -5,7 +5,7 @@ unit GUIInitialization;
 interface
 
 uses
-  Classes, SysUtils, Math, CastleUIState, Forms, Controls, Graphics, Dialogs,
+  Classes, SysUtils, LCLType, Math, CastleUIState, Forms, Controls, Graphics, Dialogs,
   ExtCtrls, ComCtrls, StdCtrls, CastleControl, MainGameUnit, CastleControls,
   CastleColors, CastleUIControls, CastleTriangles, CastleShapes, CastleVectors,
   CastleViewport, CastleCameras, X3DNodes, X3DFields, X3DTIme, CastleImages,
@@ -16,7 +16,9 @@ type
   { TCastleForm }
 
   TCastleForm = class(TForm)
+    TrackUnits: TComboBox;
     InfoPanel: TPanel;
+    PositionLabel: TLabel;
     UpperPanel: TPanel;
     PositionPanel: TPanel;
     ContainerPanel: TPanel;
@@ -29,12 +31,16 @@ type
     procedure ContainerPanelClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
     procedure Splitter1CanOffset(Sender: TObject; var NewOffset: Integer;
       var Accept: Boolean);
+    procedure TrackUnitsChange(Sender: TObject);
     procedure WindowBeforeRender(Sender: TObject);
     procedure WindowClose(Sender: TObject);
     procedure WindowOpen(Sender: TObject);
+    procedure UpdatePosition;
   end;
 
 var
@@ -45,15 +51,85 @@ implementation
 
 procedure TCastleForm.FormCreate(Sender: TObject);
 begin
+  MinimumFPS := 999999;
+  RecordedMinimumFPS := False;
+
   WriteLnLog('FormCreate : ' + FormatFloat('####0.000', (CastleGetTickCount64 - AppTime) / 1000) + ' : ');
   {$ifdef darwin}
   WindowState := wsFullScreen;
   {$endif}
   AppTime := CastleGetTickCount64;
+  MinFrame := 1;
+  MaxFrame := 45062;
+  FrameDiff := 0;
+  FrameCounter := 19369;
+  FramesPerTC := 24000;
+  CountsPerTC := 1001;
+  UpdatePosition;
   PrepDone := False;
   Profiler.Enabled := true;
   InitializeLog;
+  KeyPreview := True;
   Caption := 'MTGVideo CGE Lazarus Application';
+end;
+
+procedure TCastleForm.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key = VK_LEFT) then
+    begin
+      if ssShift in Shift then
+        FrameDiff := -6
+      else if ssCtrl in Shift then
+        FrameDiff := -12
+      else if ssAlt in Shift then
+        FrameDiff := -24
+      else
+        FrameDiff := -1;
+      Key := 0;
+    end;
+  if (Key = VK_RIGHT) then
+    begin
+      if ssShift in Shift then
+        FrameDiff := 6
+      else if ssCtrl in Shift then
+        FrameDiff := 12
+      else if ssAlt in Shift then
+        FrameDiff := 24
+      else
+        FrameDiff := 1;
+      Key := 0;
+    end;
+end;
+
+procedure TCastleForm.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key = VK_LEFT) then
+    begin
+      if FrameDiff < 0 then
+        FrameDiff := 0;
+      Key := 0;
+    end;
+  if (Key = VK_RIGHT) then
+    begin
+      if FrameDiff > 0 then
+        FrameDiff := 0;
+      Key := 0;
+    end;
+end;
+
+procedure TCastleForm.UpdatePosition;
+var
+  FrameInMs: Single;
+begin
+  if TrackUnits.ItemIndex = 0 then
+    PositionLabel.Caption := IntToStr(FrameCounter)
+  else
+    begin
+      FrameInMs := FrameCounter * (CountsPerTC / FramesPerTC);
+      PositionLabel.Caption := FormatFloat('#####0.000', FrameInMs);
+    end;
 end;
 
 procedure TCastleForm.FormResize(Sender: TObject);
@@ -65,6 +141,11 @@ procedure TCastleForm.Splitter1CanOffset(Sender: TObject;
   var NewOffset: Integer; var Accept: Boolean);
 begin
 
+end;
+
+procedure TCastleForm.TrackUnitsChange(Sender: TObject);
+begin
+  UpdatePosition;
 end;
 
 procedure TCastleForm.WindowBeforeRender(Sender: TObject);

@@ -1,0 +1,852 @@
+[
+    {
+        "fromFrame": 2915,
+        "toFrame": 3003,
+        "cardName": "Skyclave Shade",
+        "cardNum": "125",
+        "price100": 41,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 3166,
+        "toFrame": 3274,
+        "cardName": "Wayfarer's Bauble",
+        "cardNum": "278",
+        "price100": 325,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 3345,
+        "toFrame": 3431,
+        "cardName": "Broken Wings",
+        "cardNum": "181",
+        "price100": 11,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 3626,
+        "toFrame": 3702,
+        "cardName": "Wayward Guide-Beast",
+        "cardNum": "176",
+        "price100": 24,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 3783,
+        "toFrame": 3887,
+        "cardName": "Nissa's Zendikon",
+        "cardNum": "197",
+        "price100": 16,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 4056,
+        "toFrame": 4134,
+        "cardName": "Zareth San, the Trickster",
+        "cardNum": "242",
+        "price100": 121,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 4174,
+        "toFrame": 4259,
+        "cardName": "Roil Eruption",
+        "cardNum": "155",
+        "price100": 15,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 4477,
+        "toFrame": 4591,
+        "cardName": "Vine Gecko",
+        "cardNum": "219",
+        "price100": 17,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 4612,
+        "toFrame": 4694,
+        "cardName": "Ancient Greenwarden",
+        "cardNum": "178",
+        "price100": 1697,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 4857,
+        "toFrame": 5033,
+        "cardName": "Gempalm Polluter",
+        "cardNum": "97",
+        "price100": 60,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 5062,
+        "toFrame": 5156,
+        "cardName": "Spitfire Lagac",
+        "cardNum": "167",
+        "price100": 27,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 5193,
+        "toFrame": 5286,
+        "cardName": "Nimble Trapfinder",
+        "cardNum": "72",
+        "price100": 14.000000000000002,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 5314,
+        "toFrame": 5409,
+        "cardName": "Scute Swarm",
+        "cardNum": "203",
+        "price100": 365,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 5434,
+        "toFrame": 5511,
+        "cardName": "Swamp",
+        "cardNum": "272",
+        "price100": 200,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 5718,
+        "toFrame": 5850,
+        "cardName": "Murasa Sproutling",
+        "cardNum": "196",
+        "price100": 28.000000000000004,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 5872,
+        "toFrame": 5955,
+        "cardName": "Shadow's Verdict",
+        "cardNum": "124",
+        "price100": 13,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 6122,
+        "toFrame": 6203,
+        "cardName": "Scavenged Blade",
+        "cardNum": "197",
+        "price100": 16,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 6247,
+        "toFrame": 6348,
+        "cardName": "Shadow's Verdict",
+        "cardNum": "124",
+        "price100": 13,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 6375,
+        "toFrame": 6375,
+        "cardName": "Lotus Cobra",
+        "cardNum": "307",
+        "price100": 551,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": "Showcase"
+    },
+    {
+        "fromFrame": 6590,
+        "toFrame": 6681,
+        "cardName": "Malakir Rebirth",
+        "cardNum": "111",
+        "price100": 97,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 6709,
+        "toFrame": 6794,
+        "cardName": "Confounding Conundrum",
+        "cardNum": "53",
+        "price100": 92,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 6952,
+        "toFrame": 7033,
+        "cardName": "Turntimber Ascetic",
+        "cardNum": "214",
+        "price100": 16,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 7033,
+        "toFrame": 7153,
+        "cardName": "Cragplate Baloth",
+        "cardNum": "183",
+        "price100": 13,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 7176,
+        "toFrame": 7263,
+        "cardName": "Forest",
+        "cardNum": "268",
+        "price100": 200,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 7295,
+        "toFrame": 7379,
+        "cardName": "Tazri, Beacon of Unity",
+        "cardNum": "45",
+        "price100": 999,
+        "cardType": "Normal",
+        "releaseSet": "AZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 7560,
+        "toFrame": 7663,
+        "cardName": "Hagra Mauling",
+        "cardNum": "106",
+        "price100": 83,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 7689,
+        "toFrame": 7782,
+        "cardName": "Akoum Hellhound",
+        "cardNum": "133",
+        "price100": 24,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 8946,
+        "toFrame": 9019,
+        "cardName": "Ondu Inversion",
+        "cardNum": "30",
+        "price100": 52,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 9042,
+        "toFrame": 9135,
+        "cardName": "Inordinate Rage",
+        "cardNum": "144",
+        "price100": 19,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 9453,
+        "toFrame": 9543,
+        "cardName": "Roiling Vortex",
+        "cardNum": "156",
+        "price100": 33,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 9565,
+        "toFrame": 9653,
+        "cardName": "Shatterskull Charger",
+        "cardNum": "159",
+        "price100": 13,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 9675,
+        "toFrame": 9764,
+        "cardName": "Utility Knife",
+        "cardNum": "256",
+        "price100": 16,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 9814,
+        "toFrame": 9892,
+        "cardName": "Man-'o-War",
+        "cardNum": "65",
+        "price100": 11,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 10064,
+        "toFrame": 10144,
+        "cardName": "Lotus Cobra",
+        "cardNum": "193",
+        "price100": 565,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 10170,
+        "toFrame": 10252,
+        "cardName": "Kuzandu Stomper",
+        "cardNum": "191",
+        "price100": 12,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 10409,
+        "toFrame": 10499,
+        "cardName": "Branchloft Pathway",
+        "cardNum": "284",
+        "price100": 444.00000000000006,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 10530,
+        "toFrame": 10643,
+        "cardName": "Yasharn, Implacable Earth",
+        "cardNum": "240",
+        "price100": 81,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 10704,
+        "toFrame": 10786,
+        "cardName": "Inventor's Fair",
+        "cardNum": "290",
+        "price100": 586,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 10924,
+        "toFrame": 11008,
+        "cardName": "Archpriest ot Iona",
+        "cardNum": "5",
+        "price100": 18,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 11036,
+        "toFrame": 11125,
+        "cardName": "Scorch Rider",
+        "cardNum": "158",
+        "price100": 13,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 11283,
+        "toFrame": 11404,
+        "cardName": "Archpriest ot Iona",
+        "cardNum": "5",
+        "price100": 18,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 11433,
+        "toFrame": 11527,
+        "cardName": "Strength of Solidarity",
+        "cardNum": "208",
+        "price100": 19,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 11549,
+        "toFrame": 11640,
+        "cardName": "Skyclave Basilica",
+        "cardNum": "44",
+        "price100": 399,
+        "cardType": "Normal",
+        "releaseSet": "AZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 11752,
+        "toFrame": 11852,
+        "cardName": "Cragcrown Pathway",
+        "cardNum": "261",
+        "price100": 378,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 11928,
+        "toFrame": 12011,
+        "cardName": "Marauding Blight-Priest",
+        "cardNum": "112",
+        "price100": 23,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 12190,
+        "toFrame": 12322,
+        "cardName": "Lithoform Engine",
+        "cardNum": "245",
+        "price100": 1747,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 12351,
+        "toFrame": 12449,
+        "cardName": "Inscription of Ruin",
+        "cardNum": "108",
+        "price100": 17,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 12474,
+        "toFrame": 12561,
+        "cardName": "Vastwood Surge",
+        "cardNum": "217",
+        "price100": 32,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 12695,
+        "toFrame": 12812,
+        "cardName": "Thieving Skydiver",
+        "cardNum": "85",
+        "price100": 303,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 12837,
+        "toFrame": 12926,
+        "cardName": "Dreadwurm",
+        "cardNum": "100",
+        "price100": 11,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 13052,
+        "toFrame": 13129,
+        "cardName": "Zareth San, the Trickster",
+        "cardNum": "242",
+        "price100": 117,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": "BadPrice"
+    },
+    {
+        "fromFrame": 13155,
+        "toFrame": 13249,
+        "cardName": "Makindi Ox",
+        "cardNum": "293",
+        "price100": 14.000000000000002,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": "Showcase"
+    },
+    {
+        "fromFrame": 13303,
+        "toFrame": 13394,
+        "cardName": "Nezumi Graverobber",
+        "cardNum": "108",
+        "price100": 63,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 13561,
+        "toFrame": 13645,
+        "cardName": "Shatterskull Smashing",
+        "cardNum": "161",
+        "price100": 666,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 13668,
+        "toFrame": 13766,
+        "cardName": "Moraug, Fury of Akoum",
+        "cardNum": "150",
+        "price100": 827,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 13791,
+        "toFrame": 13873,
+        "cardName": "Tazeem Raptor",
+        "cardNum": "43",
+        "price100": 11,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14015,
+        "toFrame": 14104,
+        "cardName": "Coralhelm Chronicler",
+        "cardNum": "54",
+        "price100": 13,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14137,
+        "toFrame": 14230,
+        "cardName": "Relic Robber",
+        "cardNum": "153",
+        "price100": 19,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14265,
+        "toFrame": 14346,
+        "cardName": "Tajuru Blightblade",
+        "cardNum": "208",
+        "price100": 20,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14505,
+        "toFrame": 14585,
+        "cardName": "Verazol, the Split Current",
+        "cardNum": "239",
+        "price100": 21,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14612,
+        "toFrame": 14707,
+        "cardName": "Cliffhaven Kitesail",
+        "cardNum": "243",
+        "price100": 20,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14739,
+        "toFrame": 14837,
+        "cardName": "Lightning Crafter",
+        "cardNum": "143",
+        "price100": 688,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 14864,
+        "toFrame": 14951,
+        "cardName": "Mountain",
+        "cardNum": "276",
+        "price100": 200,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 15492,
+        "toFrame": 15589,
+        "cardName": "Omnath, Locus of Creation",
+        "cardNum": "312",
+        "price100": 1900,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": "Showcase"
+    },
+    {
+        "fromFrame": 15615,
+        "toFrame": 15706,
+        "cardName": "Expedition Diviner",
+        "cardNum": "57",
+        "price100": 19,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 15741,
+        "toFrame": 15836,
+        "cardName": "Thought Vessel",
+        "cardNum": "55",
+        "price100": 822.0000000000001,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 16262,
+        "toFrame": 16358,
+        "cardName": "Forest",
+        "cardNum": "279",
+        "price100": 200,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 16529,
+        "toFrame": 16621,
+        "cardName": "Clearwater Pathway",
+        "cardNum": "260",
+        "price100": 598,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 16645,
+        "toFrame": 16737,
+        "cardName": "Grakmaw, Skyclave Ravager",
+        "cardNum": "223",
+        "price100": 46,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 16893,
+        "toFrame": 17037,
+        "cardName": "Throne of Makindi",
+        "cardNum": "265",
+        "price100": 13,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 17063,
+        "toFrame": 17146,
+        "cardName": "Expedition Skulker",
+        "cardNum": "101",
+        "price100": 23,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 17272,
+        "toFrame": 17394,
+        "cardName": "Tajuru Paragon",
+        "cardNum": "209",
+        "price100": 25,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 17421,
+        "toFrame": 17511,
+        "cardName": "Canopy Baloth",
+        "cardNum": "182",
+        "price100": 12,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 17637,
+        "toFrame": 17757,
+        "cardName": "Myriad Construct",
+        "cardNum": "246",
+        "price100": 28.000000000000004,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 17781,
+        "toFrame": 17869,
+        "cardName": "Fissure Wizard",
+        "cardNum": "140",
+        "price100": 25,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 17908,
+        "toFrame": 17987,
+        "cardName": "Island",
+        "cardNum": "271",
+        "price100": 299,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 18133,
+        "toFrame": 18216,
+        "cardName": "Leyline Tyrant",
+        "cardNum": "147",
+        "price100": 724,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 18249,
+        "toFrame": 18345,
+        "cardName": "Prowling Felidar",
+        "cardNum": "294",
+        "price100": 28.999999999999996,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": "Showcase"
+    },
+    {
+        "fromFrame": 18393,
+        "toFrame": 18475,
+        "cardName": "Etherium-Horn Sorcerer",
+        "cardNum": "209",
+        "price100": 25,
+        "cardType": "Normal",
+        "releaseSet": "PLIST",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 18602,
+        "toFrame": 18727,
+        "cardName": "Scourge of the Skyclaves",
+        "cardNum": "122",
+        "price100": 1485,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 18750,
+        "toFrame": 18839,
+        "cardName": "Magmatic Channeler",
+        "cardNum": "148",
+        "price100": 115.99999999999999,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 18860,
+        "toFrame": 18955,
+        "cardName": "Subtle Strike",
+        "cardNum": "128",
+        "price100": 16,
+        "cardType": "Foil",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 19287,
+        "toFrame": 19369,
+        "cardName": "Creeping Tar Pit",
+        "cardNum": "34",
+        "price100": 650,
+        "cardType": "Normal",
+        "releaseSet": "ZNE",
+        "miscNotes": "BoxTopper"
+    },
+    {
+        "fromFrame": 20564,
+        "toFrame": 20717,
+        "cardName": "Akiri, Fearless Voyager",
+        "cardNum": "220",
+        "price100": 35,
+        "cardType": "Normal",
+        "releaseSet": "ZNR",
+        "miscNotes": ""
+    },
+    {
+        "fromFrame": 34225,
+        "toFrame": 34269,
+        "cardName": "Cavern of Souls",
+        "cardNum": "22",
+        "price100": 6000,
+        "cardType": "Normal",
+        "releaseSet": "ZNE",
+        "miscNotes": "BoxTopper"
+    }
+]

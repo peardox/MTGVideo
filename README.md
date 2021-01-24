@@ -1,30 +1,8 @@
 # MTGVideo
 
-This project is Lazarus, Castle Editor and build-tool friendly
+Depends on Castle Game Engine + JsonTools
 
-##### To compile with Lazarus (the only option for MacOS)
+##### To compile with Lazarus
 
 Load MTGVideoLaz.lpi into Lazarus + compile
-
-##### To compile with Castle-Editor
-
-Open CastleEngineManifest.xml in Castle Editor and select Compile And Run from the Run menu item
-
-##### To compile from the command line for Windows/Linux
-
-castle-engine compile
-
-./MTGVideoApp
-
-##### To compile from the command line for Android
-
-castle-engine package  --target=android
-
-Install MTGVideoApp-debug.apk / MTGVideoApp-release.apk on a device
-
-##### To compile from the command line for iOS
-
-castle-engine package  --target=ios
-
-Install on a device or use simulator
 

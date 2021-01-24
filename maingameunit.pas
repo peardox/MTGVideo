@@ -36,6 +36,7 @@ type
     LabelImgSize: TCastleLabel;
     LabelViewSize: TCastleLabel;
     LabelWinSize: TCastleLabel;
+    LabelMinimumFPS: TCastleLabel;
     LabelEffectiveSize: TCastleLabel;
     LabelRender: TCastleLabel;
     LabelSceneLoad: TCastleLabel;
@@ -49,15 +50,30 @@ type
     procedure Stop; override; // TUIState
     procedure LoadView;
     procedure LoadFrame(filename: String);
+    procedure MoveToNextFrame(const frames: Integer = 1);
+    procedure MoveToPrevFrame(const frames: Integer = 1);
+    procedure MoveToFrame;
   end;
 
 var
-  AppTime: Int64;
-  PrepDone: Boolean;
   CastleApp: TCastleApp;
   RenderReady: Boolean;
 
+  AppTime: Int64;
+  PrepDone: Boolean;
+
+  FrameCounter: Int64;
+  FrameDiff: Int64;
+  MinFrame: Int64;
+  MaxFrame: Int64;
+  FramesPerTC: Int64;
+  CountsPerTC: Int64;
+
+  MinimumFPS: Single;
+  RecordedMinimumFPS: Boolean;
+
 const
+  WorkingDirectory: String = 'C:\backup\vids\tcc\tcc_znr_set_open\720p';
   SceneFile: String = 'castle-data:/frame-540p.jpg';
 //  SceneFile: String = 'castle-data:/frame-720p.jpg';
 //  SceneFile: String = 'castle-data:/frame-1080p.jpg';
@@ -75,7 +91,7 @@ var
 begin
   PointlessButton.Exists := False;
   ProcTimer := CastleGetTickCount64;
-  LoadFrame(SceneFile);
+  LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
   ProcTimer := CastleGetTickCount64 - ProcTimer;
   WriteLnLog('ProcTimer (LoadScene) = ' + FormatFloat('####0.000', ProcTimer / 1000) + ' seconds');
   LabelSceneLoad.Caption := 'LoadScene = ' + FormatFloat('####0.000', ProcTimer / 1000) + ' seconds';
@@ -120,6 +136,7 @@ begin
   CreateLabel(LabelImgSize, 2, False);
   CreateLabel(LabelEffectiveSize, 3, False);
 
+  CreateLabel(LabelMinimumFPS, 4);
   CreateLabel(LabelSceneLoad, 2);
   CreateLabel(LabelFPS, 1);
   CreateLabel(LabelRender, 0);
@@ -148,6 +165,38 @@ begin
         WriteLnLog('Oops #1' + LineEnding + E.ClassName + LineEnding + E.Message);
        end;
   end;
+end;
+
+procedure TCastleApp.MoveToNextFrame(const frames: Integer = 1);
+begin
+  if FrameCounter < MaxFrame then
+    begin
+      FrameCounter += frames;
+      if FrameCounter > MaxFrame then
+        FrameCounter := MaxFrame;
+      LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
+    end;
+end;
+
+procedure TCastleApp.MoveToPrevFrame(const frames: Integer = 1);
+begin
+  if FrameCounter > MinFrame then
+    begin
+      FrameCounter -= frames;
+      if FrameCounter < MinFrame then
+        FrameCounter := MinFrame;
+      LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
+    end;
+end;
+
+procedure TCastleApp.MoveToFrame;
+begin
+  FrameCounter += FrameDiff;
+  if FrameCounter > MaxFrame then
+    FrameCounter := MaxFrame;
+  if FrameCounter < MinFrame then
+    FrameCounter := MinFrame;
+  LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
 end;
 
 procedure TCastleApp.Start;
@@ -183,6 +232,26 @@ begin
       LabelEffectiveSize.Caption := 'Effective Size  : ' + FloatToStr(CurrentFrame.EffectiveWidth) + ' x ' + FloatToStr(CurrentFrame.EffectiveHeight);
       CurrentFrame.Left := (CurrentFrame.Width - CurrentFrame.EffectiveWidth) / 2;
       CurrentFrame.Bottom := (CurrentFrame.Height - CurrentFrame.EffectiveHeight) / 2;
+
+      if not(Container.Fps.WasSleeping) then
+        begin
+          if Container.Fps.RealFps > 0.1 then
+            begin
+              if MinimumFPS > Container.Fps.RealFps then
+                begin
+                  MinimumFPS := Container.Fps.RealFps;
+                end;
+            end;
+        end;
+
+      LabelMinimumFPS.Caption := 'MinFPS = ' + FloatToStr(MinimumFPS);
+
+    end;
+  if (MinimumFPS < 10) and not(RecordedMinimumFPS) then
+    begin
+      RecordedMinimumFPS := True;
+      WriteLnLog('RecordedMinimumFPS : ' + FormatFloat('####0.000', (CastleGetTickCount64 - AppTime) / 1000));
+      WriteLnLog('RealFPS : ' + FormatFloat('####0.000', Container.Fps.RealFps));
     end;
 end;
 
@@ -196,6 +265,16 @@ begin
       PointlessButtonClick(nil);
       WriteLnLog('Frame Loaded (displayed?) : ' + FormatFloat('####0.000', (CastleGetTickCount64 - AppTime) / 1000));
     end;
+
+  if GLInitialized and RenderReady then
+    begin
+      if FrameDiff <> 0 then
+        begin
+          MoveToFrame;
+          CastleForm.UpdatePosition;
+        end;
+    end;
+
   RenderReady := True;
 end;
 

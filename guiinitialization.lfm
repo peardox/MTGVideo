@@ -8,6 +8,8 @@ object CastleForm: TCastleForm
   ClientWidth = 647
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
   OnResize = FormResize
   Position = poDefault
   LCLVersion = '2.0.10.0'
@@ -59,7 +61,7 @@ object CastleForm: TCastleForm
         TabOrder = 2
         object Window: TCastleControlBase
           Left = 1
-          Height = 246
+          Height = 261
           Top = 1
           Width = 470
           Align = alClient
@@ -71,22 +73,55 @@ object CastleForm: TCastleForm
         end
         object PositionPanel: TPanel
           Left = 1
-          Height = 50
-          Top = 247
+          Height = 35
+          Top = 262
           Width = 470
           Align = alBottom
           BevelOuter = bvNone
-          ClientHeight = 50
+          ClientHeight = 35
           ClientWidth = 470
           TabOrder = 1
           object PositionTrackBar: TTrackBar
-            Left = 0
-            Height = 25
-            Top = 25
-            Width = 470
+            Left = 70
+            Height = 35
+            Top = 0
+            Width = 231
             Position = 0
-            Align = alBottom
+            Align = alClient
             TabOrder = 0
+          end
+          object TrackUnits: TComboBox
+            Left = 0
+            Height = 23
+            Top = 0
+            Width = 70
+            Align = alLeft
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'Frame'
+              'Time'
+            )
+            OnChange = TrackUnitsChange
+            TabOrder = 1
+            Text = 'Frame'
+          end
+          object PositionLabel: TLabel
+            Left = 301
+            Height = 35
+            Top = 0
+            Width = 169
+            Align = alRight
+            Caption = 'PositionLabel'
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -21
+            Font.Name = 'Courier New'
+            Font.Pitch = fpFixed
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
           end
         end
       end
