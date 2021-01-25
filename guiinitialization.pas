@@ -9,11 +9,11 @@ uses
   {$ifndef windows}
   CastleFilesUtils,
   {$endif}
-  ExtCtrls, ComCtrls, StdCtrls, CastleControl, MainGameUnit, CastleControls,
-  CastleColors, CastleUIControls, CastleTriangles, CastleShapes, CastleVectors,
-  CastleViewport, CastleCameras, X3DNodes, X3DFields, X3DTIme, CastleImages,
-  CastleGLImages, CastleApplicationProperties, CastleLog, CastleTimeUtils,
-  CastleKeysMouse;
+  ExtCtrls, ComCtrls, StdCtrls, CastleControl, MainGameUnit, BGRAGraphicControl,
+  CastleControls, CastleColors, CastleUIControls, CastleTriangles, CastleShapes,
+  CastleVectors, CastleViewport, CastleCameras, X3DNodes, X3DFields, X3DTIme,
+  CastleImages, CastleGLImages, CastleApplicationProperties, CastleLog,
+  CastleTimeUtils, CastleKeysMouse;
 
 type
   { TCastleForm }
@@ -37,6 +37,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
+    procedure PositionTrackBarChange(Sender: TObject);
     procedure Splitter1CanOffset(Sender: TObject; var NewOffset: Integer;
       var Accept: Boolean);
     procedure TrackUnitsChange(Sender: TObject);
@@ -74,6 +75,8 @@ begin
   CountsPerTC := 1001; // Temp
   UpdatePosition;
   PrepDone := False;
+  RepeatTimer := 0;
+  RepeatThreshold := 250;
   Profiler.Enabled := true;
   InitializeLog;
   KeyPreview := True;
@@ -115,13 +118,19 @@ begin
   if (Key = VK_LEFT) then
     begin
       if FrameDiff < 0 then
-        FrameDiff := 0;
+        begin
+          FrameDiff := 0;
+          RepeatTimer := 0;
+        end;
       Key := 0;
     end;
   if (Key = VK_RIGHT) then
     begin
       if FrameDiff > 0 then
-        FrameDiff := 0;
+        begin
+          FrameDiff := 0;
+          RepeatTimer := 0;
+        end;
       Key := 0;
     end;
 end;
@@ -129,19 +138,51 @@ end;
 procedure TCastleForm.UpdatePosition;
 var
   FrameInMs: Single;
+  tch: Integer;
+  tcm: Integer;
+  tcs: Integer;
+  tcu: Integer;
+  tmp: Integer;
 begin
   if TrackUnits.ItemIndex = 0 then
-    PositionLabel.Caption := IntToStr(FrameCounter)
-  else
     begin
       FrameInMs := FrameCounter * (CountsPerTC / FramesPerTC);
-      PositionLabel.Caption := FormatFloat('#####0.000', FrameInMs);
+      tmp := Trunc(FrameInMs);
+      tch := Trunc(tmp / 3600);
+      tcm := Trunc((tmp - (tch * 60)) / 60);
+      tcs := Trunc(tmp - (tch * 3600) - (tcm * 60));
+      tcu := Trunc((FrameInMs - tmp) * 1000);
+      PositionLabel.Caption := Format('%.2d', [tch]) + ':' +
+                               Format('%.2d', [tcm]) + ':' +
+                               Format('%.2d', [tcs]) + '.' +
+                               Format('%.3d', [tcu]);
+    end
+  else if TrackUnits.ItemIndex = 1 then
+    PositionLabel.Caption := IntToStr(FrameCounter)
+  else if TrackUnits.ItemIndex = 2 then
+    begin
+      FrameInMs := FrameCounter * (CountsPerTC / FramesPerTC);
+      PositionLabel.Caption := FormatFloat('#####0.000', Trunc(FrameInMs * 1000) / 1000);
     end;
+  PositionTrackBar.Position := FrameCounter;
 end;
 
 procedure TCastleForm.FormResize(Sender: TObject);
 begin
   PositionPanel.Height := PositionTrackBar.Height;
+end;
+
+procedure TCastleForm.PositionTrackBarChange(Sender: TObject);
+begin
+  if RenderReady then
+    begin
+      {
+      FrameCounter := PositionTrackBar.Position;
+      CastleApp.MoveToFrame;
+      UpdatePosition;
+      Application.ProcessMessages;
+      }
+    end;
 end;
 
 procedure TCastleForm.Splitter1CanOffset(Sender: TObject;

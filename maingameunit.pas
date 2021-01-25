@@ -50,8 +50,6 @@ type
     procedure Stop; override; // TUIState
     procedure LoadView;
     procedure LoadFrame(filename: String);
-    procedure MoveToNextFrame(const frames: Integer = 1);
-    procedure MoveToPrevFrame(const frames: Integer = 1);
     procedure MoveToFrame;
   end;
 
@@ -71,6 +69,8 @@ var
 
   MinimumFPS: Single;
   RecordedMinimumFPS: Boolean;
+  RepeatTimer: Int64;
+  RepeatThreshold: Int64;
 
   WorkingDirectory: String;
 
@@ -87,7 +87,11 @@ var
 begin
   PointlessButton.Exists := False;
   ProcTimer := CastleGetTickCount64;
+  CastleForm.PositionTrackBar.Min := MinFrame;
+  CastleForm.PositionTrackBar.Max := MaxFrame;
+  CastleForm.PositionTrackBar.PageSize := Trunc(60 * (FramesPerTC / CountsPerTC)) + 1;
   LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
+  CastleForm.UpdatePosition;
   ProcTimer := CastleGetTickCount64 - ProcTimer;
   WriteLnLog('ProcTimer (LoadScene) = ' + FormatFloat('####0.000', ProcTimer / 1000) + ' seconds');
   LabelSceneLoad.Caption := 'LoadScene = ' + FormatFloat('####0.000', ProcTimer / 1000) + ' seconds';
@@ -161,28 +165,6 @@ begin
         WriteLnLog('Oops #1' + LineEnding + E.ClassName + LineEnding + E.Message);
        end;
   end;
-end;
-
-procedure TCastleApp.MoveToNextFrame(const frames: Integer = 1);
-begin
-  if FrameCounter < MaxFrame then
-    begin
-      FrameCounter += frames;
-      if FrameCounter > MaxFrame then
-        FrameCounter := MaxFrame;
-      LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
-    end;
-end;
-
-procedure TCastleApp.MoveToPrevFrame(const frames: Integer = 1);
-begin
-  if FrameCounter > MinFrame then
-    begin
-      FrameCounter -= frames;
-      if FrameCounter < MinFrame then
-        FrameCounter := MinFrame;
-      LoadFrame(WorkingDirectory + DirectorySeparator + 'frame-' + Format('%.6d', [FrameCounter]) + '.jpg');
-    end;
 end;
 
 procedure TCastleApp.MoveToFrame;
@@ -266,8 +248,17 @@ begin
     begin
       if FrameDiff <> 0 then
         begin
-          MoveToFrame;
-          CastleForm.UpdatePosition;
+          if RepeatTimer = 0 then
+            begin
+            RepeatTimer := CastleGetTickCount64;
+            MoveToFrame;
+            CastleForm.UpdatePosition;
+            end;
+          if CastleGetTickCount64 > (RepeatTimer + RepeatThreshold) then
+            begin
+            MoveToFrame;
+            CastleForm.UpdatePosition;
+            end;
         end;
     end;
 

@@ -86,6 +86,7 @@ object CastleForm: TCastleForm
             Height = 35
             Top = 0
             Width = 231
+            OnChange = PositionTrackBarChange
             Position = 0
             Align = alClient
             TabOrder = 0
@@ -99,12 +100,13 @@ object CastleForm: TCastleForm
             ItemHeight = 15
             ItemIndex = 0
             Items.Strings = (
-              'Frame'
-              'Time'
+              'Timecode'
+              'Frames'
+              'Time (ms)'
             )
             OnChange = TrackUnitsChange
             TabOrder = 1
-            Text = 'Frame'
+            Text = 'Timecode'
           end
           object PositionLabel: TLabel
             Left = 301
